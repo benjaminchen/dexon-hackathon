@@ -34,6 +34,7 @@
     textarea
       font-size: 2vmin
       padding: 1vmin
+      width: 100%
 
 .next-btn, .upload-btn
   +setFlex
@@ -56,8 +57,8 @@
         +size(30px)
         transition: .3s ease
   i
-    +size(28px)
-    border: 2px solid #ffffff
+    +size(3vmin)
+    // border: 2px solid #ffffff
     border-radius: 50%
     display: inline-flex
     margin-left: 3vmin
@@ -67,26 +68,32 @@
       @extend %posAbs
       +setBg(#fff)
       border-radius: 50%
-      +size(30px)
+      +size(3vmin)
       transition: .3s ease
     &::after
       content: ''
       @extend %posAbs
       +setBg($lightRed)
       border-radius: 50%
-      +size(5px)
+      +size(1vmin)
       transition: .3s ease
 
 .upload-btn
-  +setAuto(26%, 3vmin auto 0)
+  +setAuto(80%)
+  padding: 1.5vmin 3vmin
+  i
+    margin-left: 1vmin
 
-.next-note
+.next-note, .upload-note
   margin-top: 3vmin
   text-align: center
   font-size: 2vmin
   letter-spacing: 1px
   color: $lightRed
   text-shadow: 1px 1px $darkRed
+
+.upload-note
+  margin-top: 1vmin
 
 
 .writer-bg
@@ -123,25 +130,26 @@
   +setImgBg('writer_bg02.jpg', 100%, 100%, 100% 100%)
 
 .upload
-  margin-left: 3rem
+  margin-top: 5rem
 
 .upload-file
-  margin-bottom: 2vmin
+  margin-bottom: 4vmin
   
   label
     position: relative
+    +setFlex(flex-start)
 
   #cover, #preview, #book
     position: absolute
     left: 0
-    top: 0
+    top: 5vmin
     opacity: 0
 
   .title
     font-size: 3vmin
     letter-spacing: .05em
     color: #fff
-    width: 27%
+    width: 30%
     display: inline-block
     margin-right: 2vmin;
 
@@ -160,4 +168,11 @@
     font-size: 3vmin
     letter-spacing: .05em
     color: $lightOrange
+    display: inline-block
+    margin: 1vmin 0 0 -3vmin
+
+  .choose-group
+    width: 34%
+  .upload-btn-group
+    display: inline-block
 

@@ -1,13 +1,81 @@
-extends includes/layout.pug
+extends includes/pages-layout.pug
 
 block head
   - title='List'
+  link(rel="stylesheet", href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css")
+  script(type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  script(type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js")
 
-block content
-  ul
-    li
-      a(href="book.html") The Game of Lives (The Mortality Doctrine, Book Three)
-    li bbb
-    li ccc
-    li ddd
-    li eee
+block left
+  .list-title HOT 10
+  .slick-list
+    div
+      .slick-img
+        img(data-lazy="../assets/images/book01.jpg")
+      p Lord of the Flies 
+    div 
+      .slick-img
+        img(data-lazy="../assets/images/book02.jpg")
+      p Lord of the Flies 
+    div
+      .slick-img
+        img(data-lazy="../assets/images/book03.jpg")
+      p Lord of the Flies 
+    div
+      .slick-img
+        img(data-lazy="../assets/images/book04.jpg")
+      p Lord of the Flies 
+    div
+      .slick-img
+        img(data-lazy="../assets/images/book05.jpg")
+      p Lord of the Flies 
+    div
+      .slick-img
+        img(data-lazy="../assets/images/book06.jpg")
+      p Lord of the Flies 
+    div
+      .slick-img
+        img(data-lazy="../assets/images/book07.jpg")
+      p Lord of the Flies 
+    div
+      .slick-img
+        img(data-lazy="../assets/images/book08.jpg")
+      p Lord of the Flies 
+    div
+      .slick-img
+        img(data-lazy="../assets/images/book09.jpg")
+      p Lord of the Flies 
+    div
+      .slick-img
+        img(data-lazy="../assets/images/book10.jpg")
+      p Lord of the Flies 
+
+  .slick-arrow
+    ul
+      li.prev
+        img(src='../assets/images/arrow_right.png')
+      li.next
+        img(src='../assets/images/arrow_left.png')
+    
+block right
+  .list-bg
+    a.logo(href='index.html')
+      img(src='../assets/images/logo.png')
+    .like-title Maybe you’ll like...
+    ul.like-lists
+      li
+        .img
+          img(src="../assets/images/book10.jpg")
+        p Year of Wonders 
+      li
+        .img
+          img(src="../assets/images/book09.jpg")
+        p The Catcher in the Rye 
+      li
+        .img
+          img(src="../assets/images/book08.jpg")
+        p Les Misérables
+      li
+        .img
+          img(src="../assets/images/book07.jpg")
+        p The Little Prince 

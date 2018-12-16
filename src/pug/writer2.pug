@@ -9,30 +9,48 @@ block left
     .upload-file
       label(for="cover")
         span.title Book cover
-        input(type="button" id="btn" value="Choose")
-        span(id="text") No selected file
-        input(type="file" id="cover")
+        .choose-group
+          input(type="button" id="btn" value="Choose")
+          span(id="text") No selected file
+          input(type="file" id="cover")
+        .upload-btn-group
+          .upload-btn
+            span UPLOAD
+            i
+          .upload-note Upload successfully
 
     .upload-file
       label(for="preview")
         span.title Preview page
-        input(type="button" id="btn" value="Choose")
-        span(id="text") No selected file
-        input(type="file" id="preview")
+        .choose-group
+          input(type="button" id="btn" value="Choose")
+          span(id="text") No selected file
+          input(type="file" id="preview")
+        .upload-btn-group
+          .upload-btn
+            span UPLOAD
+            i
+          .upload-note Upload successfully
 
     .upload-file
       label(for="book")
         span.title Book file
-        input(type="button" id="btn" value="Choose")
-        span(id="text") No selected file
-        input(type="file" id="book")
+        .choose-group
+          input(type="button" id="btn" value="Choose")
+          span(id="text") No selected file
+          input(type="file" id="book")
+        .upload-btn-group
+          .upload-btn
+            span UPLOAD
+            i
+          .upload-note Upload successfully
 
 
-  a.upload-btn(href='writer2.html')
-    span UPLOAD
-    i
+  //- a.upload-btn(href='writer2.html')
+  //-   span UPLOAD
+  //-   i
 
-  .next-note Upload successfully
+  
 
 
 block right
