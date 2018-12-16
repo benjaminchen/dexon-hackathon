@@ -50,11 +50,31 @@ block left
   //-   span UPLOAD
   //-   i
 
-  
+
 
 
 block right
   .writer2-bg
     a.logo(href='index.html')
       img(src='../assets/images/logo.png')
+
+block script
+  script.
+   $('#book').change(function() {
+     var formdata = new FormData()
+     var file = $(this).prop('files')
+     formdata.append("file-to-upload", file[0])
+     jQuery.ajax({
+        url: '/api/book/file',
+        type: "POST",
+        data: formdata,
+        processData: false,
+        contentType: false,
+        success: function (result) {
+            console.log(result)
+            localStorage.setItem("fileHash", result[0].hash)
+            alert('file upload success!')
+        }
+    })
+   })
 

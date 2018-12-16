@@ -15,7 +15,7 @@ block content
           a(href='writer.html')
             img(src='../assets/images/nav_icon01.png')
             p WRITER
-        li 
+        li
           img(src='../assets/images/nav_icon02.png')
           p CART
         li
@@ -26,3 +26,100 @@ block content
         a.icon(href='')
           img(src='../assets/images/nav_icon04.png')
         input
+
+block script
+  script.
+    window.dexon.enable()
+    const dexonProvider = window.dexon
+    const web3 = new Web3(dexonProvider)
+
+    web3.eth.getAccounts().then(accounts => {
+        console.log('accounts', accounts)
+    })
+
+    const contract = new web3.eth.Contract([
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "hash",
+                    "type": "string"
+                }
+            ],
+            "name": "getSecret",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "hash",
+                    "type": "string"
+                }
+            ],
+            "name": "removeBook",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "hash",
+                    "type": "string"
+                }
+            ],
+            "name": "buyBook",
+            "outputs": [],
+            "payable": true,
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "hash",
+                    "type": "string"
+                },
+                {
+                    "name": "writer",
+                    "type": "address"
+                },
+                {
+                    "name": "secret",
+                    "type": "string"
+                }
+            ],
+            "name": "addBook",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ], '0xd34e6f5f65ef06a4fbdf585822894b44df373fca')
+
+    contract.methods.getSecret('teststring').call().then(
+    (result) => {
+        console.log(result)
+    }, (err) => {
+        console.log(err)
+    })
+
+    web3.eth.getAccounts().then(accounts => {
+        console.log('accounts', accounts)
+        contract.methods.buyBook('teststring').send({
+          value: web3.utils.toWei('5', 'ether'),
+          from: accounts[0]
+        })
+    })
