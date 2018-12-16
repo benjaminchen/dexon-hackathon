@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 
 let app = express()
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 var web3
 
@@ -19,7 +20,7 @@ const routes = require('./routes')(web3)
 const env = JSON.parse(fs.readFileSync('./config/env.json', 'utf8'))
 
 const db = require('./config/db.config.js').db;
-  
+
 // force: true will drop the table if it already exists
 db.sequelize.sync({force: true}).then(() => {
   console.log('`Database & tables created!`Drop and Resync with { force: true }');

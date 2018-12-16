@@ -9,43 +9,43 @@ block left
     tr
       td Author
       td :
-      td 
-        input(type="text")
+      td
+        input(type="text" id="author")
       td Title
       td :
-      td 
-        input(type="text")
+      td
+        input(type="text" id="title")
     tr
       td Language
       td :
       td
-        select
+        select(id="language")
           option(value="Abaza") Abaza
           option(value="Chinese") Chinese
           option(value="English") English
       td Type
       td :
-      td 
-        select
+      td
+        select(id="type")
           option(value="Adventure") Adventure
           option(value="Horror") Horror
           option(value="Romance") Romance
     tr
       td Price
       td :
-      td 
-        input(placeholder='CAUTION 1' type='number')
+      td
+        input(placeholder='CAUTION 1' type='number' id="price")
       td Key
       td :
-      td 
-        input(placeholder='CAUTION 2' type="text")
+      td
+        input(placeholder='CAUTION 2' type="text" id="key")
     tr
       td Description
       td :
-      td.des(colspan='4') 
-        textarea(name="description", cols="60", rows="6")
+      td.des(colspan='4')
+        textarea(name="description", cols="60", rows="6" id="description")
 
-  a.next-btn(href='writer2.html')
+  a.next-btn#test
     span NEXT
     i
 
@@ -62,3 +62,33 @@ block right
       ol
         li The price you offered is the minimum price that you're willing to sell your book to others.
         li Please keep your key secure. If anyone with your key can take control of your book forever.
+
+
+block script
+  script.
+    console.log($("#test"))
+    $("#test").on("click", function(event) {
+      var data = {
+        title: $("#title").val(),
+        author: $("#author").val(),
+        language: $("#language option:selected").text(),
+        type: $("#type option:selected").text(),
+        price: $("#price").val(),
+        description: $("#description").val()
+      }
+
+      console.log(data);
+
+      localStorage.setItem("bookSecret", $("#key").val());
+
+      $.ajax({
+        type: "POST",
+        url: "/api/books",
+        data: data,
+        success: function() {
+          console.log(data);
+          window.location.replace("writer2.html");
+          console.log(data);
+        }
+      })
+    });
