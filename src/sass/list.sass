@@ -30,6 +30,7 @@
 
   .slick-img
     width: 75%
+    display: block
     @extend %img100
 
   p
@@ -74,5 +75,67 @@
       text-align: center
       padding: 1.5vmin 7vmin 0 0
       letter-spacing: .5px
+
+.book-bg
+  +setImgBg('book_bg.jpg', 100%, 100%, 100% 100%)
+
+.tab-pane
+  li
+    p
+      font-size: 2vmin
+      letter-spacing: 1px
+      line-height: 3vmin
+      color: rgba(#fff, .7)
+
+  ol
+    margin-left: 25px
+    li
+      list-style: decimal
+      color: $darkBlue
+      margin-bottom: 1vmin
+
+  .des
+    h3
+      font-size: 3.5vmin
+      letter-spacing: 1px
+      color: #fff
+      font-weight: normal
+      margin-bottom: 1.5vmin
+    p
+      font-size: 2vmin
+      line-height: 3vmin
+      letter-spacing: .5px
+      color: rgba(#fff, .8)
+      &:not(:last-child)
+        margin-bottom: 1vmin
+
+  form
+    +setFlex
+    margin-top: 3vmin 
+    input
+      border: none
+      +setBg($lightOrange)
+      padding: 1vmin
+      height: 7vmin
+      width: 20vmin
+      margin-right: 2vmin
+      font-size: 3vmin
+
+    button
+      border: none
+      margin: 0
+
+#discuss
+  +setAuto(90%, 5vmin auto 0)
+
+  textarea
+    +size(100%, 8vmin)
+    margin-top: 2vmin
+    padding: 1vmin
+    border: 1px solid $darkBlue
+    font-size: 2vmin
+
+  button
+    border: none
 
 
