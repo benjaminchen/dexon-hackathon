@@ -1,1 +1,1 @@
-console.log(123);
+$(document).ready(function(){$(".slick-list").slick({lazyLoad:"ondemand",infinite:!0,slidesToShow:4,slidesToScroll:1,prevArrow:$(".prev"),nextArrow:$(".next")})});

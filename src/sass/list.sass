@@ -1,0 +1,78 @@
+@import 'variable'
+
+.list-bg
+  +setImgBg('list_bg.jpg', 100%, 100%, 100% 100%)
+
+.list-title
+  font-size: 5vmin
+  color: #fff
+  text-align: center
+  padding-top: 9vmin
+  margin-bottom: 5vmin
+  letter-spacing: .1em
+  position: relative
+  &::before, &::after
+    content: ''
+    position: absolute
+    bottom: 17%
+    +size(50px, 2px)
+    +setBg(#fff)
+  &::before
+    left: 25%
+  &::after
+    right: 25%
+
+.slick-list
+  height: 60%
+  +setAuto(95%)
+  margin-top: 5vmin
+  margin-left: 3vmin
+
+  .slick-img
+    width: 75%
+    @extend %img100
+
+  p
+    font-size: 2vmin
+    color: #fff
+    text-align: center
+    padding: 1.5vmin 5.5vmin 0 0
+    letter-spacing: .5px
+
+.slick-arrow
+  position: absolute
+  top: 46%
+  width: 5vmin
+  @extend %img100
+  .prev
+    right: -84vmin
+  .next
+    left: -3vmin
+
+.like-title
+  color: $darkBlue
+  font-size: 5vmin
+  letter-spacing: .05em
+  margin-top: -4vmin
+  margin-left: 5vmin
+  text-align: center
+
+.like-lists
+  +setFlex(space-between)
+  +setAuto(90%)
+  margin-top: 11vmin
+  margin-left: 7vmin
+
+  li
+    .img
+      width: 67%
+      @extend %img100
+
+    p
+      font-size: 2vmin
+      color: $darkBlue
+      text-align: center
+      padding: 1.5vmin 7vmin 0 0
+      letter-spacing: .5px
+
+
